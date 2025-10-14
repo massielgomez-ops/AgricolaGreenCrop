@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Flotante</title>
+    <link href="{{ url_for('static', filename='css/chatbot.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Contenedor del chatbot -->
+    <div class="chatbot-container">
+        <!-- Ventana del chatbot -->
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-title">Asistente Virtual</div>
+                <button class="chatbot-close" id="closeChat">×</button>
+            </div>
+            <div class="chatbot-messages" id="chatMessages">
+                <!-- Mensajes aparecerán aquí -->
+                <div class="message bot-message">
+                    ¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte hoy?
+                </div>
+                <div class="quick-options">
+                    <button class="quick-option" data-question="Productos">Ver productos</button>
+                    <button class="quick-option" data-question="Servicios">Conocer servicios</button>
+                    <button class="quick-option" data-question="Contacto">Información de contacto</button>
+                </div>
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+                <span class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
+                <button id="sendMessage">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Botón para abrir el chatbot -->
+        <button class="chatbot-button" id="openChat">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="white"/>
+            </svg>
+        </button>
+    </div>
+
+    
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+</body>
+</html>
