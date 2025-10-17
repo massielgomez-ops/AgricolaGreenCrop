@@ -1,0 +1,140 @@
+:root {
+  --primary: #2e7d32;      /* Verde Principal */
+  --primary-light: #66bb6a;  /* Verde Claro */
+  --primary-dark: #1b5e20;   /* Verde Oscuro */
+  --accent: #a5d6a7;       /* Verde de Acento Sutil (Borde) */
+  --soft-green-bg: #f5fff5; /* 🌟 Nuevo: Fondo de caja verde muy pálido */
+  --background: #f9f9f9;
+  --text: #333;           
+  --shadow-color: #2e7d32; 
+}
+
+/* ===============================
+    RESETS Y BASE
+================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* =================================
+    🌿 BUSCADOR MINIMALISTA DE CAJA SUAVE - VERDE FRESCO
+================================= */
+
+/* 🌿 Fondo general de la sección del buscador (ÁREA GRANDE DETRÁS) */
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Mantenemos blanco puro para el contraste con la caja */
+    background: #ffffff; 
+    padding: 80px 20px; 
+}
+
+/* Contenedor principal */
+.search-wrapper {
+    width: 100%;
+    max-width: 700px; 
+    text-align: center;
+    position: relative;
+}
+
+/* 🌿 Caja principal del buscador: EL RECTÁNGULO CON FONDO VERDE CLARO */
+.search-container {
+    display: flex;
+    align-items: center;
+    
+    /* 1. FONDO VERDE CLARITO: Usamos la nueva variable */
+    background: var(--soft-green-bg); 
+    
+    /* 2. BORDE MÁS CLARITO: Usamos el verde de acento */
+    border: 1px solid var(--primary-light); 
+    border-radius: 12px; 
+    
+    padding: 6px 10px; 
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
+    
+    transition: all 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animación y Hover de la Caja */
+.search-container:focus-within {
+    /* Al hacer clic, el borde se vuelve más oscuro */
+    border-color: var(--primary);
+    box-shadow: 0 6px 20px rgba(46, 125, 50, 0.2); 
+    transform: translateY(-1px);
+}
+
+.search-container:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+/* 🌱 Campo de texto: Limpio y centrado */
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1.1rem;
+    padding: 16px 20px 16px 20px; 
+    /* 3. LETRAS NEGRAS: Ya está configurado con var(--text): #333 */
+    color: var(--text); 
+}
+
+.search-input::placeholder {
+    color: #a0a0a0;
+    font-style: normal;
+}
+
+/* 🔍 Botón del buscador (Se mantiene igual, resalta bien con el fondo claro) */
+.search-btn {
+    background: var(--primary);
+    border: none;
+    border-radius: 8px; 
+    width: 50px; 
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    
+    box-shadow: 0 3px 8px rgba(46, 125, 50, 0.4);
+    transition: all 0.2s ease;
+}
+
+.search-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+    box-shadow: 0 5px 12px rgba(46, 125, 50, 0.6);
+}
+
+
+/* 🌸 Lista de sugerencias (Se mantiene para consistencia) */
+.suggestions-list {
+    list-style: none;
+    margin-top: 5px; 
+    background: #ffffff;
+    border-radius: 0 0 12px 12px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: none;
+    max-height: 250px; 
+    overflow-y: auto;
+    text-align: left;
+    border: 1px solid var(--accent);
+    border-top: none; 
+    z-index: 10;
+}
+
+/* ... (El resto del código como el texto decorativo y la adaptación móvil se mantiene igual) */

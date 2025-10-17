@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Compra - Agrícola Green Crop</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/3.jpg') }}">
+    <!-- Tus estilos generales -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <!-- Estilos específicos del formulario -->
+    <link href="{{ url_for('static', filename='css/compra.css') }}" rel="stylesheet">
+</head>
+<body class="main-body">
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="{{ url_for('index') }}" class="header-logo-link">
+                <img src="{{ url_for('static', filename='img/3.jpg') }}" alt="Logo Agrícola Green Crop" class="logo-img">
+                <div class="logo-text-container">
+                    <h1 class="logo-title">
+                        <span class="logo-text-agricola">Agrícola</span>
+                        <span class="logo-text-green">Green</span>
+                    </h1>
+                    <p class="logo-text-crop">Crop</p>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="page-title-section">
+            <h1 class="page-title">Formulario de Compra</h1>
+            <p class="page-subtitle">Completa tus datos y selecciona el método de pago para finalizar tu pedido.</p>
+        </section>
+
+        <section class="form-section">
+            <div class="container form-container">
+                <form id="purchase-form" class="purchase-form" method="POST">
+                    
+                    <!-- DATOS DEL CLIENTE -->
+                    <h2 class="form-title">Datos del Cliente</h2>
+                    <div class="form-group">
+                        <label for="full-name">Nombre Completo:</label>
+                        <input type="text" id="full-name" name="full-name" placeholder="Nombre completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" placeholder="Correo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Teléfono / WhatsApp:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="numero de celular" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Dirección de Envío:</label>
+                        <input type="text" id="address" name="address" placeholder="direccion" required>
+                    </div>
+
+                    <!-- DETALLES DEL PEDIDO -->
+                    <h2 class="form-title">Detalles del Pedido</h2>
+                    <div class="form-group">
+                        <label for="product">Producto:</label>
+                        <select id="product" name="product" required>
+                            <option value="">Selecciona un producto</option>
+                            <option value="fertilizante-a">Fertilizante A</option>
+                            <option value="pesticida-b">Pesticida B</option>
+                            <option value="semillas-c">Semillas C</option>
+                            <option value="herramienta-d">Herramienta D</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Cantidad (hectáreas o unidades):</label>
+                        <input type="number" id="quantity" name="quantity" min="1" placeholder="hectareas" required>
+                    </div>
+
+                    <!-- MÉTODO DE PAGO -->
+                    <h2 class="form-title">Método de Pago</h2>
+                    <div class="payment-options">
+                        <label class="payment-method">
+                            <input type="radio" name="payment-method" value="tarjeta" required>
+                            💳 Tarjeta de crédito / débito
+                        </label>
+                        <label class="payment-method">
+                            <input type="radio" name="payment-method" value="transferencia">
+                            🏦 Transferencia bancaria
+                        </label>
+                        <label class="payment-method">
+                            <input type="radio" name="payment-method" value="yape">
+                            📱 Yape / Plin
+                        </label>
+                    </div>
+
+                    <div id="payment-details" class="payment-details"></div>
+
+                    <!-- RESUMEN DEL PEDIDO -->
+                    <div class="order-summary">
+                        <h2 class="form-title">Resumen del Pedido</h2>
+                        <p><strong>Producto:</strong> <span id="summary-product">-</span></p>
+                        <p><strong>Cantidad:</strong> <span id="summary-quantity">-</span></p>
+                        <p><strong>Total estimado:</strong> S/ <span id="summary-total">0.00</span></p>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Finalizar Compra</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2025 Agrícola Green Crop S.A.C. - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JS general -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- JS específico del formulario -->
+    <script src="{{ url_for('static', filename='js/compra.js') }}"></script>
+</body>
+</html>
