@@ -1,8 +1,12 @@
 /* tarjeta.css - Estilos para la sección "Por qué elegirnos" con tarjetas animadas */
 
+/* ------------------------------------------------------------------ */
+/* A. ESTILOS DEL CONTENEDOR (Sección Principal) */
+/* ------------------------------------------------------------------ */
 .why-us-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, #1a4d2e 0%, #2e7d32 100%);
+    /* FONDO DE LA SECCIÓN: DDF6D2 (Verde Menta Suave) */
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
 }
 
 .why-us-section .container {
@@ -15,7 +19,8 @@
 .why-us-section .section-title {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: white;
+    /* COLOR DE LETRAS: 328E6E (Verde Esmeralda Oscuro, para contraste sobre el fondo claro) */
+    color: #328E6E;
     display: block;
     width: 100%;
     text-align: center;
@@ -30,7 +35,8 @@
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: #ffc107;
+    /* Acento en el mismo color de las letras para coherencia */
+    background: #328E6E;
     border-radius: 2px;
 }
 
@@ -38,7 +44,8 @@
     font-size: 1.2rem;
     max-width: 800px;
     margin: 30px auto 60px;
-    color: white;
+    /* COLOR DE LETRAS: 328E6E (Para contraste y legibilidad) */
+    color: #328E6E; 
     text-align: center;
 }
 
@@ -50,7 +57,9 @@
     justify-items: center;
 }
 
-/* Estilos para las tarjetas con efecto de volteo */
+/* ------------------------------------------------------------------ */
+/* B. ESTILOS DE LAS TARJETAS (Flip-Card) */
+/* ------------------------------------------------------------------ */
 .why-us-section .flip-card {
     background-color: transparent;
     perspective: 1000px;
@@ -91,26 +100,36 @@
 }
 
 .why-us-section .flip-card-front {
-    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
-    color: white;
-    border: 2px solid #ffc107;
+    /* FONDO DELANTERO: 84AE92 (Verde Grisáceo) */
+    background: linear-gradient(135deg, #84AE92 0%, #aff7c7 100%); /* Usamos un ligero degradado para profundidad */
+    /* Letras en Verde Esmeralda Oscuro para contraste sobre el verde grisáceo */
+    color: #328E6E;
+    /* Borde en el color de las letras para acento */
+    border: 3px solid #328E6E;
 }
 
 .why-us-section .flip-card-back {
-    background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
-    color: #e6e6e6;
+    /* FONDO TRASERO: B7E5B4 (Verde Claro) */
+    background: linear-gradient(135deg, #B7E5B4 0%, #a2cc9f 100%); /* Usamos un ligero degradado para profundidad */
+    /* Letras en Verde Esmeralda Oscuro para contraste sobre el fondo claro */
+    color: #328E6E;
     transform: rotateY(180deg);
-    border: 2px solid #4caf50;
+    /* Borde en el color del frente para coordinación */
+    border: 3px solid #84AE92;
 }
 
 .why-us-section .feature-icon {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    color: #fff;
+    /* Ícono en el lado frontal: Color de las letras */
+    color: #328E6E;
 }
 
 .why-us-section .flip-card-back .feature-icon {
-    color: #1a4d2e;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    /* Ícono en el lado trasero: Color de las letras */
+    color: #328E6E;
 }
 
 .why-us-section .feature-title {
@@ -122,9 +141,13 @@
 .why-us-section .feature-text {
     font-size: 1.1rem;
     line-height: 1.6;
+    /* Texto en el color de las letras */
+    color: #328E6E;
 }
 
-/* Animación de entrada para las tarjetas */
+/* ------------------------------------------------------------------ */
+/* C. ANIMACIÓN Y RESPONSIVE (Mantenidas) */
+/* ------------------------------------------------------------------ */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -168,6 +191,8 @@
     }
     
     .why-us-section .flip-card {
-        height: 280px;
-    }
+        height: 280px; /* CORREGIDO: Se eliminó el carácter inválido */
+    } /* CORREGIDO: Se agregó el cierre correcto */
 }
+
+

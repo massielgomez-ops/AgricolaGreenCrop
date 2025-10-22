@@ -1,17 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Agrícola Green Crop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='chatbot.css') }}">
+</head>
+<body>
+
 <div id="chatbot-container" class="chatbot-container">
-    <!-- Botón flotante -->
     <button id="chatbot-toggle" class="chatbot-button">💬</button>
 
-    <!-- Ventana del chatbot -->
     <div id="chatbot-box" class="chatbot-box hidden">
         <div class="chatbot-header">
             <h3>Asistente Agrícola 🌱</h3>
             <button id="chatbot-close" class="close-btn">✖</button>
         </div>
 
-        <div class="chatbot-messages" id="chatbot-messages">
-            <div class="message bot"><strong>Bot:</strong> ¡Hola! 👋 ¿En qué puedo ayudarte hoy?</div>
-        </div>
+        <div class="chatbot-messages" id="chatbot-messages"></div>
 
         <div class="chatbot-input">
             <input type="text" id="user-input" placeholder="Escribe tu mensaje...">
@@ -19,3 +25,7 @@
         </div>
     </div>
 </div>
+
+<script src="{{ url_for('static', filename='chatbot.js') }}"></script>
+</body>
+</html>

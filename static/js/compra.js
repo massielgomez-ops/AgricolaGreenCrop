@@ -3,250 +3,475 @@ const productsByCategory = {
     inicio: [  // FERTILIZANTES INICIO Y PRE-FLORACIÓN
         { 
             id: 1, 
-            name: "Poly-Feed 8-52-17", 
+            name: "Poly-Feed 8-52-1", 
             category: "FERTILIZANTES INICIO Y PRE-FLORACIÓN", 
             price: 45.99,
             // ¡IMPORTANTE! El archivo en la imagen se llama poly-feed.jpeg, pero el ID 1 usa poly-feed-8-52-17.jpg. 
             // Usaré el nombre del JS, pero podrías tener que renombrar tu archivo.
-            image: "poly-feed.jpeg" 
+            image: "poly-feed-8-52-1.png" 
         },
-        { 
-            id: 2, 
-            name: "Starter Plus 12-40-12", 
-            category: "FERTILIZANTES INICIO Y PRE-FLORACIÓN", 
-            price: 42.50,
-            image: "2.jpeg" // Usando 2.jpeg de la estructura de carpetas
-        }
     ],
     fosfatados: [
         { 
-            id: 3, 
+            id: 2, 
             name: "Fosfato Diamónico", 
             category: "FERTILIZANTES FOSFATADOS", 
             price: 45.99,
-            image: "fosfato.png" // Usando fosfato.png de la estructura de carpetas
+            image: "fosfatodiamonico.png" // Usando fosfato.png de la estructura de carpetas
         },
         { 
-            id: 4, 
+            id: 3, 
             name: "Superfosfato Triple", 
             category: "FERTILIZANTES FOSFATADOS", 
             price: 38.50,
-            image: "3.jpg" // Usando 3.jpg de la estructura de carpetas
+            image: "super-fosfato-triple-.png" // Usando 3.jpg de la estructura de carpetas
+        },
+        { 
+            id: 4, 
+            name: "Fosfato Monoamónico Granular", 
+            category: "FERTILIZANTES FOSFATADOS", 
+            price: 52.75,
+            image: "fosfatogranular.png" // Usando 5.jpg de la estructura de carpetas
         },
         { 
             id: 5, 
-            name: "Fosfato Monoamónico", 
+            name: "MicroEssentials SZ", 
             category: "FERTILIZANTES FOSFATADOS", 
             price: 52.75,
-            image: "5.jpg" // Usando 5.jpg de la estructura de carpetas
+            image: "microessential.png" // Usando 5.jpg de la estructura de carpetas
         }
+        
     ],
     vegetativo: [  // DESARROLLO VEGETATIVO
         { 
             id: 6, 
-            name: "Nitro Grow 20-10-10", 
+            name: "Poly-Feed-31-11-11", 
             category: "DESARROLLO VEGETATIVO", 
             price: 35.99,
-            image: "6.webp"
-        },
-        { 
-            id: 7, 
-            name: "Veggie Boost 15-5-15", 
-            category: "DESARROLLO VEGETATIVO", 
-            price: 40.25,
-            image: "7.webp"
+            image: "poly-feed-31-11-11.png" // Ejemplo de uso
         }
     ],
     potasicos: [
         { 
-            id: 8, 
+            id: 7, 
             name: "Cloruro de Potasio", 
             category: "FERTILIZANTES POTÁSICOS", 
             price: 29.80,
-            image: "8.jpeg"
+            image: "cloruropotasio.png"
         },
         { 
-            id: 9, 
+            id: 8, 
             name: "Sulfato de Potasio", 
             category: "FERTILIZANTES POTÁSICOS", 
             price: 55.40,
-            image: "9.gif"
+            image: "sulfatopotasio.png"
+        },
+        { 
+            id: 9, 
+            name: "Nitrato de Potasio Perlado", 
+            category: "FERTILIZANTES POTÁSICOS", 
+            price: 55.40,
+            image: "nitratopotasio.png"
+        },
+        { 
+            id: 10, 
+            name: "Cloruro Potásico Blanco", 
+            category: "FERTILIZANTES GENÉRICOS", 
+            price: 55.40,
+            image: "cloruropotasioblanco.png"
         }
     ],
     multiproposito: [
         { 
-            id: 10, 
-            name: "All Purpose 10-10-10", 
+            id: 11, 
+            name: "Poly-Feed 21-21-21", 
             category: "MULTIPROPÓSITO", 
             price: 32.99,
-            image: "10.jpg"
+            image: "poly-feed2121.png"
         },
         { 
-            id: 11, 
-            name: "Universal Mix 12-12-12", 
+            id: 12, 
+            name: "Haifa Mag Enverdecedor", 
             category: "MULTIPROPÓSITO", 
             price: 35.75,
-            image: "huerto.jpeg" // Ejemplo de uso
+            image: "haifamag.png" // Ejemplo de uso
         }
     ],
     magnesicos: [
         { 
-            id: 12, 
+            id: 13, 
             name: "K-Mag / Sulpomag", 
             category: "FERTILIZANTES MAGNÉSICOS", 
             price: 25.99,
-            image: "magnesio.jpeg"
+            image: "k-magsulpomag.png" // Ejemplo de uso
         },
         { 
-            id: 13, 
-            name: "Sulfato de Magnesio", 
+            id: 14, 
+            name: "Kieserita (Sulfato de Magnesio)", 
             category: "FERTILIZANTES MAGNÉSICOS", 
             price: 28.75,
-            image: "descarga.jpeg" // Ejemplo de uso
+            image: "kieseritaweb.png" // Ejemplo de uso
         }
     ],
     fruto: [  // DESARROLLO Y LLENADO DE FRUTO
         { 
-            id: 14, 
-            name: "Fruit Fill 5-15-30", 
+            id: 15, 
+            name: "Poly-Feed 12-6-40", 
             category: "DESARROLLO Y LLENADO DE FRUTO", 
             price: 44.99,
-            image: "papa.jpeg" // Ejemplo de uso
+            image: "polyfeed12.png" // Ejemplo de uso
         },
         { 
-            id: 15, 
-            name: "Bloom Booster 2-10-20", 
+            id: 16, 
+            name: "Poly-Feed 15-15-30", 
             category: "DESARROLLO Y LLENADO DE FRUTO", 
             price: 47.25,
-            image: "compuesto.jpeg" // Ejemplo de uso
+            image: "poly-feed1515.png" // Ejemplo de uso
+        },
+        { 
+            id: 17, 
+            name: "Bonus-npK", 
+            category: "DESARROLLO Y LLENADO DE FRUTO", 
+            price: 47.25,
+            image: "Bonusnpk13.png" // Ejemplo de uso
+        },
+        { 
+            id: 18, 
+            name: "K-Leaf Sulfato de Potasio Foliar", 
+            category: "DESARROLLO Y LLENADO DE FRUTO", 
+            price: 47.25,
+            image: "kleafsulfato.png" // Ejemplo de uso
         }
     ],
     micronutrientes: [
         { 
-            id: 16, 
-            name: "Micro Mix Complete", 
+            id: 19, 
+            name: "Fertibagra 15G", 
             category: "MICRONUTRIENTES", 
             price: 28.99,
-            image: "micronutrientes.jpeg"
+            image: "Fertibagra15.png" // Ejemplo de uso
         },
         { 
-            id: 17, 
-            name: "Zinc Chelate", 
+            id: 20, 
+            name: "F727G", 
             category: "MICRONUTRIENTES", 
             price: 34.50,
-            image: "images (2).jpeg" // Ejemplo de uso
+            image: "F727g.png" // Ejemplo de uso
         }
     ],
     compuestos: [
         { 
-            id: 18, 
-            name: "NPK Compound 15-15-15", 
-            category: "FERTILIZANTES COMPUESTOS", 
+            id: 21, 
+            name: "Molimax Superdoce", 
+            category: "Mezclas Molimax", 
             price: 43.99,
-            image: "images (1).jpeg" // Ejemplo de uso
+            image: "molimaxsuperdoceM.png" // Ejemplo de uso
         },
         { 
-            id: 19, 
-            name: "Complex Blend 8-8-8", 
+            id: 22, 
+            name: "Molimax - S", 
             category: "FERTILIZANTES COMPUESTOS", 
             price: 39.50,
-            image: "images.jpeg" // Ejemplo de uso
+            image: "molimax-s.png" // Ejemplo de uso
+        },
+        { 
+            id: 23, 
+            name: "Molimax 20-20-20", 
+            category: "FERTILIZANTES MOLIMAX", 
+            price: 39.50,
+            image: "molimax202020.png" // Ejemplo de uso
+        },
+        { 
+            id: 24, 
+            name: "Molimax 12-12-12", 
+            category: "FERTILIZANTES MOLIMAX", 
+            price: 39.50,
+            image: "molimax121212.png" // Ejemplo de uso
+        },
+        { 
+            id: 25, 
+            name: "Molimax Café", 
+            category: "Mezclas especificas", 
+            price: 39.50,
+            image: "molimaxcafe.png" // Ejemplo de uso
+        },
+        { 
+            id: 26, 
+            name: "NPK café", 
+            category: "MESZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "npkcafe.png" // Ejemplo de uso
+        },
+        { 
+            id: 27, 
+            name: "Molimax Papa Sierra", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "molimaxpapasierra.png" // Ejemplo de uso
+        },
+        { 
+            id: 28, 
+            name: "Molimax Frutales", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "molimaxfrutales.png" // Ejemplo de uso
+        },
+        { 
+            id: 29, 
+            name: "Molimax Maíz", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "molimaxmaiz.png" // Ejemplo de uso
+        },
+        { 
+            id: 30, 
+            name: "Molimax Olivo", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "molimaxolivo.png" // Ejemplo de uso
+        },
+        { 
+            id: 31, 
+            name: "Molimax Maíz Gigante", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "molimaxmaizgigante.png" // Ejemplo de uso
+        },
+        { 
+            id: 32, 
+            name: "NPK Palma Aceitera", 
+            category: "FERTILIZANTES COMPUESTOS", 
+            price: 39.50,
+            image: "npkpalmaaceitera.png" // Ejemplo de uso
         }
     ],
     molinax: [
         { 
-            id: 20, 
-            name: "MolinaX Special", 
-            category: "MEZCLAS MOLINAX", 
+            id: 33, 
+            name: "Molimax Superdoce", 
+            category: "MEZCLAS MOLIMAX", 
             price: 52.99,
-            image: "descarga.jpeg" 
+            image: "molimaxsuperdoceM.png" 
         },
         { 
-            id: 21, 
-            name: "MolinaX Premium", 
-            category: "MEZCLAS MOLINAX", 
+            id: 34, 
+            name: "Molimax - S", 
+            category: "MEZCLAS MOLIMAX", 
             price: 58.75,
-            image: "descarga.jpeg"
+            image: "molimax-s.png"
+        },
+        { 
+            id: 35, 
+            name: "Molimax 20-20-20", 
+            category: "MEZCLAS MOLIMAX", 
+            price: 58.75,
+            image: "molimax202020.png"
+        },
+        { 
+            id: 36, 
+            name: "Molimax 12-12-12", 
+            category: "MEZCLAS MOLIMAX", 
+            price: 58.75,
+            image: "molimax121212.png"
         }
     ],
     especificas: [
         { 
-            id: 22, 
-            name: "Tomato Special Mix", 
+            id: 35, 
+            name: "Molimax Café", 
             category: "MEZCLAS ESPECÍFICAS", 
             price: 47.99,
-            image: "descarga.jpeg"
+            image: "molimaxcafe.png"
         },
         { 
-            id: 23, 
-            name: "Corn Formula", 
+            id: 36, 
+            name: "NPK café", 
             category: "MEZCLAS ESPECÍFICAS", 
             price: 44.50,
-            image: "descarga.jpeg"
+            image: "npkcafe.png"
+        },
+        { 
+            id: 36, 
+            name: " Molimax Papa Sierra", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 44.50,
+            image: "molimaxpapasierra.png"
+        },
+        { 
+            id: 36, 
+            name: "Molimax Frutales", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 44.50,
+            image: "molimaxfrutales.png"
         }
     ],
     quimicas: [
         { 
-            id: 24, 
-            name: "Chemical Formula A", 
+            id: 37, 
+            name: "Moli - 19", 
             category: "MEZCLAS QUÍMICAS Y FORMULACIONES", 
             price: 55.99,
-            image: "descarga.jpeg"
+            image: "moli-19.png"
         },
         { 
-            id: 25, 
-            name: "Advanced Formula B", 
+            id: 38, 
+            name: "Moli - 16", 
             category: "MEZCLAS QUÍMICAS Y FORMULACIONES", 
             price: 62.50,
-            image: "descarga.jpeg"
+            image: "moli-16.png"
         }
     ],
     hidrosolubles: [
         { 
-            id: 26, 
-            name: "Hydro Grow 20-20-20", 
+            id: 39, 
+            name: "PONI", 
             category: "FERTILIZANTES HIDROSOLUBLES", 
             price: 36.99,
-            image: "hidrosoluble.jpeg"
+            image: "poni.png"
         },
         { 
-            id: 27, 
-            name: "Water Soluble Bloom", 
+            id: 40, 
+            name: "Multi-K pHast", 
             category: "FERTILIZANTES HIDROSOLUBLES", 
             price: 41.25,
-            image: "descarga.jpeg"
+            image: "multi-kphast.png"
+        },
+        { 
+            id: 41, 
+            name: "Haifa Mag", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "haifamag.png"
+        },
+        { 
+            id: 42, 
+            name: "Haifa MKP", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "haifamkp.png"
+        },
+        { 
+            id: 43, 
+            name: "Nitrato de Calcio", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "nitratodecalcio.png"
+        },
+        { 
+            id: 44, 
+            name: "Fosfato Monoamónico Soluble", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "fosfatomonoamonico.png"
+        },
+        { 
+            id: 45, 
+            name: "Ácido Fosfórico 85%", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "acidofosforico85%.png"
+        },
+        { 
+            id: 46, 
+            name: "SOLUPOTASSE", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "solupotasse.png"
+        },
+        { 
+            id: 47, 
+            name: "Sulfato de Magnesio", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "sulfatodemagnesioH.png"
+        },
+        { 
+            id: 48, 
+            name: "Sulfato de Zinc", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "sulfatodezinc.png"
+        },
+        { 
+            id: 49, 
+            name: "Sulfato de Cobre", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "SULFATO-DE-COBREO-PENTAHIDRATADO.png"
+        },
+        { 
+            id: 50, 
+            name: "Multi-Micro Comb", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "MULTI-MICRO-COMB-.png"
         }
     ],
     foliares: [
         { 
-            id: 28, 
-            name: "Foliar Feed Plus", 
+            id: 51, 
+            name: "Poly-Feed 8-52-17", 
             category: "FERTILIZANTES FOLIARES", 
             price: 29.99,
-            image: "foliares.jpeg"
+            image: "poly-feed-8-52-1.png"
         },
         { 
-            id: 29, 
-            name: "Leaf Nutrition Spray", 
+            id: 52, 
+            name: "Poly-Feed 31-11-11", 
             category: "FERTILIZANTES FOLIARES", 
             price: 33.75,
-            image: "descarga.jpeg"
+            image: "poly-feed-31-11-11.png"
+        },
+        { 
+            id: 53, 
+            name: "Poly-Feed 21-21-21", 
+            category: "FERTILIZANTES FOLIARES", 
+            price: 33.75,
+            image: "poly-feed2121.png"
+        },
+        { 
+            id: 54, 
+            name: "Poly-Feed 12-6-40", 
+            category: "FERTILIZANTES FOLIARES", 
+            price: 33.75,
+            image: "polyfeed12.png"
         }
     ],
     nitrogenados: [
         { 
-            id: 30, 
-            name: "Urea 46%", 
+            id: 55, 
+            name: "Urea Agrícola", 
             category: "FERTILIZANTES NITROGENADOS", 
             price: 35.90,
-            image: "descarga.jpeg"
+            image: "ureaagricola.png"
         },
         { 
-            id: 31, 
+            id: 56, 
             name: "Nitrato de Amonio", 
             category: "FERTILIZANTES NITROGENADOS", 
             price: 48.60,
-            image: "descarga.jpeg"
+            image: "nitratodeamonio.png"
+        },
+        { 
+            id: 57, 
+            name: "Sulfato de Amonio", 
+            category: "FERTILIZANTES NITROGENADOS", 
+            price: 48.60,
+            image: "sulfatodeamonio.png"
+        },
+        { 
+            id: 58, 
+            name: " Molimax Nitros", 
+            category: "FERTILIZANTES NITROGENADOS", 
+            price: 48.60,
+            image: "molimaxnitros.png"
+        },
+        { 
+            id: 59, 
+            name: " Urea Azulada", 
+            category: "FERTILIZANTES NITROGENADOS", 
+            price: 48.60,
+            image: "ureaazulada.png"
         }
     ]
 };
@@ -534,20 +759,23 @@ function initializeCart() {
                 alert('Tu carrito está vacío. Añade algunos productos antes de proceder al pago.');
             } else {
                 const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                alert(`Redirigiendo al proceso de pago...\nTotal: $${total.toFixed(2)}`);
-                // **NOTA:** El redireccionamiento a 'formulario_compra' es una función de backend.
-                // Aquí solo se mostrará el alert para mantener el código solo JS de frontend.
-                // window.location.href = "/formulario_compra"; // Descomentar y ajustar ruta si es necesario
+            
+                // Redirigir al formulario de compra
+                window.location.href = "/formulario_compra";
+            
+                // Opcional: Mostrar mensaje de confirmación
+                console.log('🛒 Redirigiendo al formulario de compra con', cart.length, 'productos');
             }
         });
     }
+}
 
     // Actualizar interfaz
     updateCartCount();
     updateCartModal();
     
     console.log('✅ Sistema del carrito inicializado correctamente');
-}
+
 
 // ========== SISTEMA DE PRODUCTOS Y BÚSQUEDA ==========
 
@@ -728,3 +956,84 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🎉 Todos los sistemas inicializados');
     console.log('💡 Para probar: Haz clic en "AÑADIR AL CARRITO" y revisa la consola');
 });
+
+
+
+
+
+
+
+// Función para cargar el carrito en la tabla
+        // Función para cargar el carrito en la tabla del checkout
+        function loadCheckoutCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('checkout-cart-items');
+            const cartTotalElement = document.getElementById('checkout-cart-total');
+            let total = 0;
+
+            cartItemsContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px;">No hay productos en el carrito</td></tr>';
+            } else {
+                cart.forEach((item, index) => {
+                    const subtotal = item.price * item.quantity;
+                    total += subtotal;
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.name}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>
+                            <input type="number" min="1" value="${item.quantity}" 
+                                onchange="updateCartItemQuantity(${index}, this.value)" 
+                                style="width: 60px; padding: 5px; text-align: center;">
+                        </td>
+                        <td>$${subtotal.toFixed(2)}</td>
+                        <td>
+                            <button class="btn-remove" onclick="removeCartItem(${index})">Eliminar</button>
+                        </td>
+                    `;
+                    cartItemsContainer.appendChild(row);
+                });
+            }
+
+            cartTotalElement.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Función para actualizar la cantidad de un producto en el carrito
+        function updateCartItemQuantity(index, newQuantity) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (index >= 0 && index < cart.length) {
+                cart[index].quantity = parseInt(newQuantity);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCheckoutCart(); // Recargar la tabla
+            }
+        }
+
+        // Función para eliminar un producto del carrito
+        function removeCartItem(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (index >= 0 && index < cart.length) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCheckoutCart(); // Recargar la tabla
+            }
+        }
+
+        // Función para actualizar el carrito desde la tabla
+        function updateCartFromTable() {
+            // Esta función se puede usar para forzar una actualización si fuera necesario
+            loadCheckoutCart();
+            alert('Carrito actualizado correctamente');
+        }
+
+        // Función para continuar comprando
+        function continueShopping() {
+            window.location.href = "{{ url_for('productos') }}";
+        }
+
+        // Cargar el carrito cuando la página se carga
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCheckoutCart();
+        });

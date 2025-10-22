@@ -378,3 +378,54 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+
+
+// ======================================================
+// 📖 EFECTO “LEER MÁS / LEER MENOS” EN BLOG
+// ======================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const botones = document.querySelectorAll('.leer-mas-btn');
+
+    botones.forEach(boton => {
+    boton.innerHTML = 'Leer más <span class="arrow">↓</span>';
+
+    boton.addEventListener('click', () => {
+        const card = boton.closest('.blog-card');
+        const textoExtra = card.querySelector('.more-text');
+        const arrow = boton.querySelector('.arrow');
+
+        textoExtra.classList.toggle('mostrar');
+        boton.classList.toggle('abierto');
+
+        if (textoExtra.classList.contains('mostrar')) {
+            boton.innerHTML = 'Leer menos <span class="arrow">↑</span>';
+        } else {
+        boton.innerHTML = 'Leer más <span class="arrow">↓</span>';
+        }
+    });
+    });
+});
+
+
+
+
+
+// ======================================================
+// ✨ ANIMACIÓN FADE-UP (Intersection Observer)
+// ======================================================
+document.addEventListener("DOMContentLoaded", () => {
+    const fadeElements = document.querySelectorAll(".fade-up");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+});

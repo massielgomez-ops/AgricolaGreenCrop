@@ -76,61 +76,98 @@ def chatbot():
 def chat():
     user_message = request.json.get('message', '').lower()
 
-    # MENÚ PRINCIPAL
+    # --- MENSAJE DE INICIO / MENÚ PRINCIPAL ---
     if user_message in ["hola", "menu", "inicio", "ayuda"]:
         return jsonify({
-            "response": "👋 ¡Hola! Bienvenido a Agrícola Green Crop 🌱<br>¿Qué deseas hacer?",
-            "options": ["Ver fertilizantes", "Obtener precios", "Contactar con asesor"]
+            "response": "👋 ¡Hola! Soy el chatbot de <b>Agrícola Green Crop</b> 🌱<br>"
+                        "Estoy aquí para ayudarte con todo lo que necesites sobre nuestros productos y servicios.<br><br>"
+                        "Ofrecemos <b>delivery rápido</b>, <b>asesoramiento personalizado</b> y todo lo que tu cultivo necesita "
+                        "para crecer fuerte y sano. 🚜✨<br><br>💬 ¿En qué puedo ayudarte hoy?",
+            "options": ["Fertilizantes", "Qué ofrecemos", "Precios", "Asesoramiento"]
         })
 
-    # OPCIÓN 1: VER FERTILIZANTES
-    elif "ver fertilizantes" in user_message:
+    # --- FERTILIZANTES ---
+    elif "fertilizantes" in user_message:
         return jsonify({
-            "response": "Ofrecemos fertilizantes orgánicos y químicos 🌾. ¿Cuál deseas conocer?",
-            "options": ["Orgánicos", "Químicos", "Volver al menú"]
+            "response": "🌾 En <b>Agrícola Green Crop</b> contamos con una amplia variedad de <b>fertilizantes</b> "
+                        "para que tus cultivos crezcan sanos y fuertes.<br><br>"
+                        "Pueden ser <b>orgánicos</b> o <b>químicos</b>, según las necesidades de tu tierra. 🌱",
+            "options": ["Orgánicos", "Químicos"]
         })
 
+    # --- FERTILIZANTES ORGÁNICOS ---
     elif "orgánicos" in user_message:
         return jsonify({
-            "response": "🌿 Tenemos compost, humus y biofertilizantes. ¿Deseas ver precios?",
-            "options": ["Sí, ver precios", "Volver al menú"]
+            "response": "🌿 Nuestros <b>fertilizantes orgánicos</b> son 100% naturales y ayudan a mejorar la calidad del suelo.<br><br>"
+                        "Contamos con <b>compost</b>, <b>humus de lombriz</b> y <b>biofertilizantes líquidos</b> ideales para todo tipo de cultivo. ♻",
+            "options": ["Ver precios", "Qué ofrecemos", "Asesoramiento"]
         })
 
+    # --- FERTILIZANTES QUÍMICOS ---
     elif "químicos" in user_message:
         return jsonify({
-            "response": "💧 Tenemos nitrato de amonio, urea y fosfato diamónico. ¿Deseas ver precios?",
-            "options": ["Sí, ver precios", "Volver al menú"]
+            "response": "💧 Los <b>fertilizantes químicos</b> de <b>Agrícola Green Crop</b> brindan una nutrición rápida y efectiva a tus cultivos.<br><br>"
+                        "Disponemos de <b>nitrato de amonio</b>, <b>urea</b> y <b>fosfato diamónico</b>, productos de alta pureza y rendimiento. ⚗",
+            "options": ["Ver precios", "Qué ofrecemos", "Asesoramiento"]
         })
 
-    # OPCIÓN 2: PRECIOS
+    # --- QUÉ OFRECEMOS ---
+    elif "qué ofrecemos" in user_message or "ofrecemos" in user_message:
+        return jsonify({
+            "response": "📦 En <b>Agrícola Green Crop</b> te ofrecemos soluciones completas para el campo:<br><br>"
+                        "✅ <b>Fertilizantes de alta calidad</b><br>"
+                        "✅ <b>Asesoramiento técnico personalizado</b><br>"
+                        "✅ <b>Delivery rápido</b> a todo el país<br>"
+                        "✅ <b>Promociones especiales</b> por temporada 🌾<br><br>"
+                        "Todo lo que tu cultivo necesita, en un solo lugar.",
+            "options": ["Fertilizantes", "Precios", "Asesoramiento"]
+        })
+
+    # --- PRECIOS ---
     elif "precio" in user_message or "precios" in user_message:
         return jsonify({
-            "response": "Los precios dependen del tipo de fertilizante y del cultivo 🌽. ¿Qué cultivo tienes?",
-            "options": ["Papa", "Maíz", "Café", "Volver al menú"]
+            "response": "💲 Nuestros precios varían según el tipo de producto y la cantidad que necesites.<br><br>"
+                        "Cuéntame qué cultivo tienes y te ayudaremos a cotizar el fertilizante más adecuado. 🌽☕🥔",
+            "options": ["Papa", "Maíz", "Café"]
         })
 
-    # OPCIÓN 3: CONTACTAR ASESOR
-    elif "asesor" in user_message or "contactar" in user_message:
+    # --- PRECIOS POR CULTIVO ---
+    elif "papa" in user_message:
         return jsonify({
-            "response": "📞 Puedes escribirnos a info@agricolagreencrop.com o por WhatsApp al +51 999 888 777.",
-            "options": ["Volver al menú"]
+            "response": "🥔 Para el cultivo de <b>papa</b>, recomendamos fertilizantes ricos en nitrógeno y potasio.<br><br>"
+                        "💲 Precio aproximado: desde <b>S/ 45 por saco</b> (según tipo y presentación).",
+            "options": ["Fertilizantes", "Asesoramiento"]
         })
 
-    # VOLVER AL MENÚ
-    elif "volver" in user_message:
+    elif "maíz" in user_message:
         return jsonify({
-            "response": "🔙 Volviendo al menú principal...",
-            "options": ["Ver fertilizantes", "Obtener precios", "Contactar con asesor"]
+            "response": "🌽 Para el <b>maíz</b>, sugerimos fertilizantes con fósforo y zinc para un mejor crecimiento y producción.<br><br>"
+                        "💲 Precio aproximado: desde <b>S/ 50 por saco</b>.",
+            "options": ["Fertilizantes", "Asesoramiento"]
         })
 
-    # SI NO ENTIENDE
+    elif "café" in user_message:
+        return jsonify({
+            "response": "☕ En el caso del <b>café</b>, usamos fertilizantes equilibrados que mejoran la floración y el grano.<br><br>"
+                        "💲 Precio aproximado: desde <b>S/ 55 por saco</b>.",
+            "options": ["Fertilizantes", "Asesoramiento"]
+        })
+
+    # --- ASESORAMIENTO ---
+    elif "asesoramiento" in user_message or "asesor" in user_message:
+        return jsonify({
+            "response": "📞 En <b>Agrícola Green Crop</b> contamos con expertos listos para asesorarte.<br><br>"
+                        "Recibirás <b>recomendaciones personalizadas</b> según tu tipo de cultivo y el estado del suelo. 🌱<br><br>"
+                        "Puedes contactarnos por:<br>📧 <b>info@agricolagreencrop.com</b><br>📱 <b>WhatsApp: +51 999 888 777</b>",
+            "options": ["Fertilizantes", "Qué ofrecemos", "Precios"]
+        })
+
+    # --- SI NO ENTIENDE ---
     else:
         return jsonify({
-            "response": "Lo siento 😅, no entiendo tu mensaje. Usa una de las opciones del menú 👇",
-            "options": ["Ver fertilizantes", "Obtener precios", "Contactar con asesor"]
+            "response": "🤔 No entendí tu mensaje. Por favor elige una de estas opciones 👇",
+            "options": ["Fertilizantes", "Qué ofrecemos", "Precios", "Asesoramiento"]
         })
-
-# --- FIN CHATBOT ---
 
 @app.route("/productos")
 def productos():

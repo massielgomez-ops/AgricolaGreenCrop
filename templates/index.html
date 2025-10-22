@@ -124,7 +124,7 @@
         </section>
 
         <!-- Sección ¿Por qué elegirnos? -->
-       <section class="why-us-section">
+        <section class="why-us-section">
         <div class="container">
             <h2 class="section-title">¿Por qué elegirnos?</h2>
             <p class="section-text">
@@ -174,29 +174,68 @@
         </div>
     </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-contact">
-                <h3 class="footer-title">Contáctanos</h3>
-                <p><i class="fas fa-phone footer-icon"></i> +51 941 562 220</p>
-                <p><i class="fas fa-map-marker-alt footer-icon"></i> Jr. Sucre 426 Imperial, Cañete, Perú</p>
-                <p><i class="fas fa-envelope footer-icon"></i> agricolagreencrop23@gmail.com</p>
-            </div>
-            <div class="footer-social">
-                <h3 class="footer-title">Síguenos</h3>
-                <div class="social-links">
-                    <a href="https://tiktok.com" target="_blank"><img src="{{ url_for('static', filename='icon/tiktok.png') }}" alt="TikTok" class="w-6 h-6"></a>
-                    <a href="https://www.instagram.com/" target="_blank" class="social-link instagram"></a>
-                    <a href="https://www.youtube.com/" target="_blank" class="social-link youtube"></a>
-                    <a href="https://wa.me/51941562220" target="_blank" class="social-link whatsapp"></a>
-                </div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="main-footer">
+    <div class="footer-overlay"></div>
+    <div class="footer-container">
+        <div class="footer-section footer-contact">
+            <h3 class="footer-title">Contáctanos</h3>
+            <p><i class="fas fa-phone footer-icon"></i> +51 941 562 220</p>
+            <p><i class="fas fa-map-marker-alt footer-icon"></i> Jr. Sucre 426 Imperial, Cañete, Perú</p>
+            <p><i class="fas fa-envelope footer-icon"></i> agricolagreencrop23@gmail.com</p>
+            <!-- Agregar enlace a la página de contacto -->
+            <a href="{{ url_for('contact') }}" class="contact-link">Ir a Contacto</a>
+        </div>
+        
+        <div class="footer-section">
+            <h3 class="footer-title">Nosotros</h3>
+            <ul class="footer-links">
+                <li><a href="{{ url_for('nosotros') }}">Galería</a></li>
+                <li><a href="{{ url_for('nosotros') }}">Historia</a></li>
+                <li><a href="{{ url_for('nosotros') }}">Políticas de Calidad</a></li>
+                <li><a href="{{ url_for('nosotros') }}">Política de Sostenibilidad</a></li>
+                <!-- Enlace principal a la página Nosotros -->
+                <li><a href="{{ url_for('nosotros') }}" class="main-link">Conoce más sobre nosotros</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3 class="footer-title">Productos</h3>
+            <ul class="footer-links">
+                <li><a href="{{ url_for('productos') }}">Fertilizantes Genéricos</a></li>
+                <li><a href="{{ url_for('productos') }}">Micronutrientes</a></li>
+                <li><a href="{{ url_for('productos') }}">Fertilizantes Compuestos</a></li>
+                <li><a href="{{ url_for('productos') }}">Fertilizantes Hidrosolubles</a></li>
+                <li><a href="{{ url_for('productos') }}">Fertilizantes Foliares</a></li>
+                <!-- Enlace principal a la página Productos -->
+                <li><a href="{{ url_for('productos') }}" class="main-link">Ver todos los productos</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section footer-social">
+            <h3 class="footer-title">Síguenos</h3>
+            <div class="social-links">
+                <a href="https://tiktok.com" target="_blank" aria-label="TikTok" class="tiktok">
+                    <img src="{{ url_for('static', filename='icon/tiktok.png') }}" alt="TikTok">
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram" class="instagram">
+                    <img src="{{ url_for('static', filename='icon/instagram.png') }}" alt="Instagram">
+                </a>
+                <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube" class="youtube">
+                    <img src="{{ url_for('static', filename='icon/youtube.png') }}" alt="YouTube">
+                </a>
+                <a href="https://wa.me/51941562220" target="_blank" aria-label="WhatsApp" class="whatsapp">
+                    <img src="{{ url_for('static', filename='icon/whatsapp.png') }}" alt="WhatsApp">
+                </a>
             </div>
         </div>
-        <div class="footer-title-container">
-            <p>© 2025 Agrícola Green Crop S.A.C. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>© 2025 Agrícola Green Crop S.A.C. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
     <!-- 💬 Chatbot flotante -->
     {% include 'chatbot.html' %}

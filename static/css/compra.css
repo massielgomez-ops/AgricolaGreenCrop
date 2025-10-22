@@ -137,4 +137,126 @@ body {
     z-index: 10;
 }
 
+
+
+
+
+
+/* Estilos para el layout de checkout de dos columnas */
+.checkout-layout {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.checkout-form-column {
+    flex: 2;
+}
+
+.checkout-cart-column {
+    flex: 1;
+}
+
+.order-summary-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    position: sticky;
+    top: 2rem;
+}
+
+/* Estilos para la tabla del carrito en el checkout */
+.cart-table-container {
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.cart-table th {
+    background-color: #2d5016;
+    color: white;
+    font-weight: 600;
+}
+
+.cart-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.cart-table tfoot {
+    background-color: #e9ecef;
+    font-weight: bold;
+}
+
+.btn-remove {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.btn-remove:hover {
+    background-color: #c82333;
+}
+
+.cart-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .checkout-layout {
+        flex-direction: column;
+    }
+    
+    .checkout-cart-column {
+        order: -1;
+    }
+    
+    .cart-table {
+        font-size: 0.875rem;
+    }
+    
+    .cart-table th,
+    .cart-table td {
+        padding: 0.5rem;
+    }
+}
 /* ... (El resto del código como el texto decorativo y la adaptación móvil se mantiene igual) */

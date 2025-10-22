@@ -6,12 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('user-input');
     const messages = document.getElementById('chatbot-messages');
 
-    // Mostrar u ocultar el chatbot
+    let saludoMostrado = false;
+
     toggleBtn.addEventListener('click', () => {
         chatbotBox.classList.toggle('active');
         chatbotBox.classList.toggle('hidden');
-        if (chatbotBox.classList.contains('active')) {
-            sendMessage("hola"); // saludo inicial
+
+        if (chatbotBox.classList.contains('active') && !saludoMostrado) {
+            mostrarMensajeBienvenida();
+            saludoMostrado = true;
         }
     });
 
@@ -20,13 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
         chatbotBox.classList.remove('active');
     });
 
-    // Enviar mensaje
     sendBtn.addEventListener('click', () => sendMessage());
     input.addEventListener('keypress', e => {
         if (e.key === 'Enter') sendMessage();
     });
 
-    // --- FUNCIÓN PRINCIPAL PARA ENVIAR ---
+    function mostrarMensajeBienvenida() {
+        appendMessage('bot', `👋 ¡Hola, bienvenidos! Soy el chatbot de <b>Agrícola Green Crop</b>.<br>
+        Estoy aquí para ayudarte con todo lo que necesites sobre nuestros productos y servicios. 🌱<br>
+        Ofrecemos <b>delivery rápido</b>, <b>asesoramiento personalizado</b> y todo lo que tu cultivo necesita para crecer fuerte y sano. 🚜✨<br><br>
+        💬 ¿En qué puedo ayudarte hoy?`, ["Fertilizantes", "Qué ofrecemos", "Precios", "Asesoramiento"]);
+    }
+
     function sendMessage(text = null) {
         const message = text || input.value.trim();
         if (!message) return;
@@ -36,23 +44,19 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch('/chat', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message })
+            body: JSON.stringify({ message: message.toLowerCase() })
         })
         .then(res => res.json())
-        .then(data => {
-            appendMessage('bot', data.response, data.options || []);
-        })
-        .catch(() => appendMessage('bot', '❌ Error al conectar con el servidor.'));
+        .then(data => appendMessage('bot', data.response, data.options || []))
+        .catch(() => appendMessage('bot', '⚠ Error al conectar con el servidor.'));
     }
 
-    // --- FUNCIÓN PARA AGREGAR MENSAJES Y BOTONES ---
     function appendMessage(sender, text, options = []) {
         const msg = document.createElement('div');
         msg.classList.add('message', sender);
         msg.innerHTML = `<strong>${sender === 'user' ? 'Tú' : 'Bot'}:</strong> ${text}`;
         messages.appendChild(msg);
 
-        // Si hay opciones (botones)
         if (options.length > 0) {
             const optionsDiv = document.createElement('div');
             optionsDiv.classList.add('options');
