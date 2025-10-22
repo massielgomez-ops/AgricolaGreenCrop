@@ -6,6 +6,7 @@
     <title>Formulario de Compra - Agrícola Green Crop</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/3.jpg') }}">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/compra.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
 </head>
 <body class="main-body">
@@ -22,23 +23,26 @@
                     <p class="logo-text-crop">Crop</p>
                 </div>
             </a>
-            <nav class="main-nav hidden-mobile">
+
+            <nav id="mobile-menu" class="mobile-menu">
                 <a href="{{ url_for('index') }}" class="nav-link">Inicio</a>
 
-                
-            <!-- Menú desplegable de Productos -->
-            <div class="dropdown">
-                <a href="{{ url_for('productos') }}" class="nav-link dropdown-toggle">
-                    Productos <span class="dropdown-arrow">▼</span>
-                </a>
-                <div class="dropdown-menu">
-                    <a href="{{ url_for('productos') }}#fertilizantes" class="dropdown-link">Fertilizantes</a>
-                    <a href="{{ url_for('productos') }}#pesticidas" class="dropdown-link">Pesticidas</a>
-                    <a href="{{ url_for('productos') }}#semillas" class="dropdown-link">Semillas</a>
-                    <a href="{{ url_for('productos') }}#herramientas" class="dropdown-link">Herramientas</a>
+                <!-- Menú desplegable de productos -->
+                <div class="dropdown">
+                    <a href="{{ url_for('productos') }}" class="nav-link dropdown-toggle">
+                        Productos <span class="dropdown-arrow">▼</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="{{ url_for('productos') }}#fertilizantes" class="dropdown-link">Fertilizantes Nitrogenados</a>
+                        <a href="{{ url_for('productos') }}#pesticidas" class="dropdown-link">Fertilizantes Fosfatados</a>
+                        <a href="{{ url_for('productos') }}#semillas" class="dropdown-link">Fertilizantes Potásicos</a>
+                        <a href="{{ url_for('productos') }}#herramientas" class="dropdown-link">Fertilizantes Magnésicos</a>
+                        <a href="{{ url_for('productos') }}#herramientas" class="dropdown-link">Micronutrientes</a>
+                        <a href="{{ url_for('productos') }}#herramientas" class="dropdown-link">Fertilizantes Compuestos</a>
+                        <a href="{{ url_for('productos') }}#herramientas" class="dropdown-link">Fertilizantes Hidrosolubles</a>
+                        <a href="{{ url_for('productos') }}#herramientas" class="dropdown-link">Fertilizantes Foliares</a>
+                    </div>
                 </div>
-            </div>
-
 
                 <a href="{{ url_for('servicio') }}" class="nav-link">Servicios</a>
                 <a href="{{ url_for('blog') }}" class="nav-link">Blog</a>
@@ -46,9 +50,11 @@
                 <a href="{{ url_for('contact') }}" class="nav-link">Contacto</a>
                 <a href="{{ url_for('formulario_compra') }}" class="nav-link">Compra</a>
             </nav>
-            <button id="mobile-menu-button" class="mobile-menu-button">
-                <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+
+            <button id="mobile-menu-button" class="mobile-menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
         </div>
@@ -57,68 +63,130 @@
     <main class="main-content">
         <section class="page-title-section">
             <h1 class="page-title">Formulario de Compra</h1>
-            <p class="page-subtitle">Completa el siguiente formulario para procesar tu pedido.</p>
+            <p class="page-subtitle">Completa tus datos y selecciona el método de pago para finalizar tu pedido.</p>
         </section>
 
         <section class="form-section">
             <div class="container form-container">
-                <form action="#" method="POST" class="purchase-form">
-                    <div class="form-group">
-                        <label for="full-name">Nombre Completo:</label>
-                        <input type="text" id="full-name" name="full-name" required>
+                <!-- Layout de dos columnas -->
+                <div class="checkout-layout">
+                    <!-- Columna del formulario -->
+                    <div class="checkout-form-column">
+                        <form id="purchase-form" class="purchase-form" method="POST">
+                            
+                            <!-- DATOS DEL CLIENTE -->
+                            <h2 class="form-title">Datos del Cliente</h2>
+                            <div class="form-group">
+                                <label for="full-name">Nombre Completo:</label>
+                                <input type="text" id="full-name" name="full-name" placeholder="Nombre completo" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico:</label>
+                                <input type="email" id="email" name="email" placeholder="Correo" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Teléfono / WhatsApp:</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Número de celular" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Dirección de Envío:</label>
+                                <input type="text" id="address" name="address" placeholder="Dirección completa" required>
+                            </div>
+
+                            <!-- MÉTODO DE PAGO -->
+                            <h2 class="form-title">Método de Pago</h2>
+                            <div class="payment-options">
+                                <label class="payment-method">
+                                    <input type="radio" name="payment-method" value="tarjeta" required>
+                                    💳 Tarjeta de crédito / débito
+                                </label>
+                                <label class="payment-method">
+                                    <input type="radio" name="payment-method" value="transferencia">
+                                    🏦 Transferencia bancaria
+                                </label>
+                                <label class="payment-method">
+                                    <input type="radio" name="payment-method" value="yape">
+                                    📱 Yape / Plin
+                                </label>
+                            </div>
+
+                            <div id="payment-details" class="payment-details"></div>
+
+                            <button type="submit" class="btn-primary">Finalizar Compra</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico:</label>
-                        <input type="email" id="email" name="email" required>
+
+                    <!-- Columna del carrito -->
+                    <div class="checkout-cart-column">
+                        <div class="order-summary-card">
+                            <h2 class="form-title">Resumen de tu Pedido</h2>
+                            
+                            <!-- Tabla de productos del carrito -->
+                            <div class="cart-table-container">
+                                <table class="cart-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Producto</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th>Subtotal</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="checkout-cart-items">
+                                        <!-- Los productos se cargarán dinámicamente -->
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3" style="text-align: right;"><strong>Total:</strong></td>
+                                            <td colspan="2" id="checkout-cart-total">$0.00</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+
+                            <div class="cart-actions">
+                                <button class="btn-secondary" onclick="continueShopping()">Seguir Comprando</button>
+                                <button class="btn-primary" onclick="updateCartFromTable()">Actualizar Carrito</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="address">Dirección de Envío:</label>
-                        <input type="text" id="address" name="address" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="product">Producto:</label>
-                        <select id="product" name="product" required>
-                            <option value="">Selecciona un producto</option>
-                            <option value="fertilizante-a">Fertilizante A</option>
-                            <option value="pesticida-b">Pesticida B</option>
-                            <option value="semillas-c">Semillas C</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">Cantidad de estarea de cultivos:</label>
-                        <input type="number" id="quantity" name="quantity" min="1" required>
-                    </div>
-                    <button type="submit" class="btn-primary">Finalizar Compra</button>
-                </form>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="main-footer">
-        <div class="container footer-container">
+        <div class="footer-container">
             <div class="footer-contact">
                 <h3 class="footer-title">Contáctanos</h3>
-                <p class="footer-text"><i class="fas fa-phone footer-icon"></i> +51 941 562 220</p>
-                <p class="footer-text"><i class="fas fa-map-marker-alt footer-icon"></i> jr. sucre 426 imperial, cañete, Perú</p>
-                <p class="footer-text"><i class="fas fa-envelope footer-icon"></i> agricolagreencrop23@gmail.com</p>
+                <p><i class="fas fa-phone footer-icon"></i> +51 941 562 220</p>
+                <p><i class="fas fa-map-marker-alt footer-icon"></i> Jr. Sucre 426 Imperial, Cañete, Perú</p>
+                <p><i class="fas fa-envelope footer-icon"></i> agricolagreencrop23@gmail.com</p>
             </div>
             <div class="footer-social">
                 <h3 class="footer-title">Síguenos</h3>
                 <div class="social-links">
-                    <a href="https://www.facebook.com/" target="_blank" class="social-link"><i class="fab fa-facebook-f icon-2x"></i></a>
-                    <a href="https://www.instagram.com/" target="_blank" class="social-link"><i class="fab fa-instagram icon-2x"></i></a>
-                    <a href="https://www.youtube.com/" target="_blank" class="social-link"><i class="fab fa-youtube icon-2x"></i></a>
-                    <a href="https://wa.me/51941562220" target="_blank" class="social-link"><i class="fab fa-whatsapp icon-2x"></i></a>
+                    <a href="https://tiktok.com" target="_blank"><img src="{{ url_for('static', filename='icon/tiktok.png') }}" alt="TikTok" class="w-6 h-6"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="{{ url_for('static', filename='icon/instagram.png') }}" alt="TikTok" class="w-6 h-6"></a>
+                    <a href="https://www.youtube.com/" target="_blank"><img src="{{ url_for('static', filename='icon/youtube.png') }}" alt="TikTok" class="w-6 h-6"></a>
+                    <a href="https://wa.me/51941562220" target="_blank"><img src="{{ url_for('static', filename='icon/whatsapp.png') }}" alt="TikTok" class="w-6 h-6"></a>
                 </div>
-            </div>
-            <div class="footer-copyright">
-                <p>© 2025 Agricola Green Crop S.A.C.</p>
-                <p>Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script src="{{ url_for('static', filename='js/web.js') }}"></script>
+        <footer class="footer-title-container">
+            <p>© 2025 Agrícola Green Crop S.A.C. Todos los derechos reservados.</p>
+        </footer>
+
+
+    <!-- JS general -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- JS específico del formulario -->
+    <script src="{{ url_for('static', filename='js/compra.js') }}"></script>
 </body>
 </html>

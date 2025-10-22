@@ -64,10 +64,16 @@
     </section>
 
     <!-- Buscador Simple -->
-    <div class="search-container">
-        <input type="text" id="searchInput" class="search-input" placeholder="Buscar productos...">
-        <ul id="suggestionsList" class="suggestions-list"></ul>
+<section class="search-section" aria-label="buscador">
+  <div style="width:100%;display:flex;flex-direction:column;align-items:center">
+    <div class="search-container" role="search">
+      <input id="searchInput" class="search-input" placeholder="Buscar productos...">
+      <button id="searchBtn" class="search-btn" aria-label="Buscar">🔍</button>
     </div>
+
+    <ul id="suggestionsList" class="suggestions-list" role="listbox" aria-label="Sugerencias"></ul>
+  </div>
+</section>
 
     <div class="products-container">
         <aside class="categories-sidebar">
@@ -99,10 +105,6 @@
         </main>
     </div>
 
-    <!-- En el header -->
-<div class="cart-icon" id="header-cart-icon">
-    🛒 <span class="cart-count">0</span>
-</div>
 
     <!-- Sistema de Carrito -->
     <div class="overlay" id="overlay"></div>

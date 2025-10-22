@@ -1,96 +1,477 @@
 // Base de datos de productos por categoría
-// Base de datos de productos por categoría con imágenes
 const productsByCategory = {
-    fosfatados: [
+    inicio: [  // FERTILIZANTES INICIO Y PRE-FLORACIÓN
         { 
             id: 1, 
+            name: "Poly-Feed 8-52-1", 
+            category: "FERTILIZANTES INICIO Y PRE-FLORACIÓN", 
+            price: 45.99,
+            // ¡IMPORTANTE! El archivo en la imagen se llama poly-feed.jpeg, pero el ID 1 usa poly-feed-8-52-17.jpg. 
+            // Usaré el nombre del JS, pero podrías tener que renombrar tu archivo.
+            image: "poly-feed-8-52-1.png" 
+        },
+    ],
+    fosfatados: [
+        { 
+            id: 2, 
             name: "Fosfato Diamónico", 
             category: "FERTILIZANTES FOSFATADOS", 
             price: 45.99,
-            image: "fosfato-diamonico.jpg"
-        },
-        { 
-            id: 2, 
-            name: "Superfosfato Triple", 
-            category: "FERTILIZANTES FOSFATADOS", 
-            price: 38.50,
-            image: "superfosfato-triple.jpg"
+            image: "fosfatodiamonico.png" // Usando fosfato.png de la estructura de carpetas
         },
         { 
             id: 3, 
-            name: "Fosfato Monoamónico Granular", 
+            name: "Superfosfato Triple", 
             category: "FERTILIZANTES FOSFATADOS", 
-            price: 52.75,
-            image: "fosfato-monoamonico.jpg"
+            price: 38.50,
+            image: "super-fosfato-triple-.png" // Usando 3.jpg de la estructura de carpetas
         },
         { 
             id: 4, 
-            name: "MicroEssentials SZ", 
+            name: "Fosfato Monoamónico Granular", 
             category: "FERTILIZANTES FOSFATADOS", 
-            price: 67.20,
-            image: "microessentials-sz.jpg"
-        }
-    ],
-    magnesicos: [
+            price: 52.75,
+            image: "fosfatogranular.png" // Usando 5.jpg de la estructura de carpetas
+        },
         { 
             id: 5, 
-            name: "K-Mag / Sulpomag", 
-            category: "FERTILIZANTES MAGNÉSICOS", 
-            price: 25.99,
-            image: "k-mag.jpg"
-        },
+            name: "MicroEssentials SZ", 
+            category: "FERTILIZANTES FOSFATADOS", 
+            price: 52.75,
+            image: "microessential.png" // Usando 5.jpg de la estructura de carpetas
+        }
+        
+    ],
+    vegetativo: [  // DESARROLLO VEGETATIVO
         { 
             id: 6, 
-            name: "Kieserita", 
-            category: "FERTILIZANTES MAGNÉSICOS", 
-            price: 32.50,
-            image: "kieserita.jpg"
-        },
-        { 
-            id: 7, 
-            name: "Sulfato de Magnesio", 
-            category: "FERTILIZANTES MAGNÉSICOS", 
-            price: 28.75,
-            image: "sulfato-magnesio.jpg"
-        },
-        { 
-            id: 8, 
-            name: "Óxido de Magnesio", 
-            category: "FERTILIZANTES MAGNÉSICOS", 
-            price: 42.30,
-            image: "oxido-magnesio.jpg"
+            name: "Poly-Feed-31-11-11", 
+            category: "DESARROLLO VEGETATIVO", 
+            price: 35.99,
+            image: "poly-feed-31-11-11.png" // Ejemplo de uso
         }
     ],
     potasicos: [
         { 
-            id: 9, 
+            id: 7, 
             name: "Cloruro de Potasio", 
             category: "FERTILIZANTES POTÁSICOS", 
             price: 29.80,
-            image: "cloruro-potasio.jpg"
+            image: "cloruropotasio.png"
         },
         { 
-            id: 10, 
+            id: 8, 
             name: "Sulfato de Potasio", 
             category: "FERTILIZANTES POTÁSICOS", 
             price: 55.40,
-            image: "sulfato-potasio.jpg"
+            image: "sulfatopotasio.png"
+        },
+        { 
+            id: 9, 
+            name: "Nitrato de Potasio Perlado", 
+            category: "FERTILIZANTES POTÁSICOS", 
+            price: 55.40,
+            image: "nitratopotasio.png"
+        },
+        { 
+            id: 10, 
+            name: "Cloruro Potásico Blanco", 
+            category: "FERTILIZANTES GENÉRICOS", 
+            price: 55.40,
+            image: "cloruropotasioblanco.png"
+        }
+    ],
+    multiproposito: [
+        { 
+            id: 11, 
+            name: "Poly-Feed 21-21-21", 
+            category: "MULTIPROPÓSITO", 
+            price: 32.99,
+            image: "poly-feed2121.png"
+        },
+        { 
+            id: 12, 
+            name: "Haifa Mag Enverdecedor", 
+            category: "MULTIPROPÓSITO", 
+            price: 35.75,
+            image: "haifamag.png" // Ejemplo de uso
+        }
+    ],
+    magnesicos: [
+        { 
+            id: 13, 
+            name: "K-Mag / Sulpomag", 
+            category: "FERTILIZANTES MAGNÉSICOS", 
+            price: 25.99,
+            image: "k-magsulpomag.png" // Ejemplo de uso
+        },
+        { 
+            id: 14, 
+            name: "Kieserita (Sulfato de Magnesio)", 
+            category: "FERTILIZANTES MAGNÉSICOS", 
+            price: 28.75,
+            image: "kieseritaweb.png" // Ejemplo de uso
+        }
+    ],
+    fruto: [  // DESARROLLO Y LLENADO DE FRUTO
+        { 
+            id: 15, 
+            name: "Poly-Feed 12-6-40", 
+            category: "DESARROLLO Y LLENADO DE FRUTO", 
+            price: 44.99,
+            image: "polyfeed12.png" // Ejemplo de uso
+        },
+        { 
+            id: 16, 
+            name: "Poly-Feed 15-15-30", 
+            category: "DESARROLLO Y LLENADO DE FRUTO", 
+            price: 47.25,
+            image: "poly-feed1515.png" // Ejemplo de uso
+        },
+        { 
+            id: 17, 
+            name: "Bonus-npK", 
+            category: "DESARROLLO Y LLENADO DE FRUTO", 
+            price: 47.25,
+            image: "Bonusnpk13.png" // Ejemplo de uso
+        },
+        { 
+            id: 18, 
+            name: "K-Leaf Sulfato de Potasio Foliar", 
+            category: "DESARROLLO Y LLENADO DE FRUTO", 
+            price: 47.25,
+            image: "kleafsulfato.png" // Ejemplo de uso
+        }
+    ],
+    micronutrientes: [
+        { 
+            id: 19, 
+            name: "Fertibagra 15G", 
+            category: "MICRONUTRIENTES", 
+            price: 28.99,
+            image: "Fertibagra15.png" // Ejemplo de uso
+        },
+        { 
+            id: 20, 
+            name: "F727G", 
+            category: "MICRONUTRIENTES", 
+            price: 34.50,
+            image: "F727g.png" // Ejemplo de uso
+        }
+    ],
+    compuestos: [
+        { 
+            id: 21, 
+            name: "Molimax Superdoce", 
+            category: "Mezclas Molimax", 
+            price: 43.99,
+            image: "molimaxsuperdoceM.png" // Ejemplo de uso
+        },
+        { 
+            id: 22, 
+            name: "Molimax - S", 
+            category: "FERTILIZANTES COMPUESTOS", 
+            price: 39.50,
+            image: "molimax-s.png" // Ejemplo de uso
+        },
+        { 
+            id: 23, 
+            name: "Molimax 20-20-20", 
+            category: "FERTILIZANTES MOLIMAX", 
+            price: 39.50,
+            image: "molimax202020.png" // Ejemplo de uso
+        },
+        { 
+            id: 24, 
+            name: "Molimax 12-12-12", 
+            category: "FERTILIZANTES MOLIMAX", 
+            price: 39.50,
+            image: "molimax121212.png" // Ejemplo de uso
+        },
+        { 
+            id: 25, 
+            name: "Molimax Café", 
+            category: "Mezclas especificas", 
+            price: 39.50,
+            image: "molimaxcafe.png" // Ejemplo de uso
+        },
+        { 
+            id: 26, 
+            name: "NPK café", 
+            category: "MESZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "npkcafe.png" // Ejemplo de uso
+        },
+        { 
+            id: 27, 
+            name: "Molimax Papa Sierra", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "molimaxpapasierra.png" // Ejemplo de uso
+        },
+        { 
+            id: 28, 
+            name: "Molimax Frutales", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "molimaxfrutales.png" // Ejemplo de uso
+        },
+        { 
+            id: 29, 
+            name: "Molimax Maíz", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "molimaxmaiz.png" // Ejemplo de uso
+        },
+        { 
+            id: 30, 
+            name: "Molimax Olivo", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "molimaxolivo.png" // Ejemplo de uso
+        },
+        { 
+            id: 31, 
+            name: "Molimax Maíz Gigante", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 39.50,
+            image: "molimaxmaizgigante.png" // Ejemplo de uso
+        },
+        { 
+            id: 32, 
+            name: "NPK Palma Aceitera", 
+            category: "FERTILIZANTES COMPUESTOS", 
+            price: 39.50,
+            image: "npkpalmaaceitera.png" // Ejemplo de uso
+        }
+    ],
+    molinax: [
+        { 
+            id: 33, 
+            name: "Molimax Superdoce", 
+            category: "MEZCLAS MOLIMAX", 
+            price: 52.99,
+            image: "molimaxsuperdoceM.png" 
+        },
+        { 
+            id: 34, 
+            name: "Molimax - S", 
+            category: "MEZCLAS MOLIMAX", 
+            price: 58.75,
+            image: "molimax-s.png"
+        },
+        { 
+            id: 35, 
+            name: "Molimax 20-20-20", 
+            category: "MEZCLAS MOLIMAX", 
+            price: 58.75,
+            image: "molimax202020.png"
+        },
+        { 
+            id: 36, 
+            name: "Molimax 12-12-12", 
+            category: "MEZCLAS MOLIMAX", 
+            price: 58.75,
+            image: "molimax121212.png"
+        }
+    ],
+    especificas: [
+        { 
+            id: 35, 
+            name: "Molimax Café", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 47.99,
+            image: "molimaxcafe.png"
+        },
+        { 
+            id: 36, 
+            name: "NPK café", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 44.50,
+            image: "npkcafe.png"
+        },
+        { 
+            id: 36, 
+            name: " Molimax Papa Sierra", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 44.50,
+            image: "molimaxpapasierra.png"
+        },
+        { 
+            id: 36, 
+            name: "Molimax Frutales", 
+            category: "MEZCLAS ESPECÍFICAS", 
+            price: 44.50,
+            image: "molimaxfrutales.png"
+        }
+    ],
+    quimicas: [
+        { 
+            id: 37, 
+            name: "Moli - 19", 
+            category: "MEZCLAS QUÍMICAS Y FORMULACIONES", 
+            price: 55.99,
+            image: "moli-19.png"
+        },
+        { 
+            id: 38, 
+            name: "Moli - 16", 
+            category: "MEZCLAS QUÍMICAS Y FORMULACIONES", 
+            price: 62.50,
+            image: "moli-16.png"
+        }
+    ],
+    hidrosolubles: [
+        { 
+            id: 39, 
+            name: "PONI", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 36.99,
+            image: "poni.png"
+        },
+        { 
+            id: 40, 
+            name: "Multi-K pHast", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "multi-kphast.png"
+        },
+        { 
+            id: 41, 
+            name: "Haifa Mag", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "haifamag.png"
+        },
+        { 
+            id: 42, 
+            name: "Haifa MKP", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "haifamkp.png"
+        },
+        { 
+            id: 43, 
+            name: "Nitrato de Calcio", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "nitratodecalcio.png"
+        },
+        { 
+            id: 44, 
+            name: "Fosfato Monoamónico Soluble", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "fosfatomonoamonico.png"
+        },
+        { 
+            id: 45, 
+            name: "Ácido Fosfórico 85%", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "acidofosforico85%.png"
+        },
+        { 
+            id: 46, 
+            name: "SOLUPOTASSE", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "solupotasse.png"
+        },
+        { 
+            id: 47, 
+            name: "Sulfato de Magnesio", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "sulfatodemagnesioH.png"
+        },
+        { 
+            id: 48, 
+            name: "Sulfato de Zinc", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "sulfatodezinc.png"
+        },
+        { 
+            id: 49, 
+            name: "Sulfato de Cobre", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "SULFATO-DE-COBREO-PENTAHIDRATADO.png"
+        },
+        { 
+            id: 50, 
+            name: "Multi-Micro Comb", 
+            category: "FERTILIZANTES HIDROSOLUBLES", 
+            price: 41.25,
+            image: "MULTI-MICRO-COMB-.png"
+        }
+    ],
+    foliares: [
+        { 
+            id: 51, 
+            name: "Poly-Feed 8-52-17", 
+            category: "FERTILIZANTES FOLIARES", 
+            price: 29.99,
+            image: "poly-feed-8-52-1.png"
+        },
+        { 
+            id: 52, 
+            name: "Poly-Feed 31-11-11", 
+            category: "FERTILIZANTES FOLIARES", 
+            price: 33.75,
+            image: "poly-feed-31-11-11.png"
+        },
+        { 
+            id: 53, 
+            name: "Poly-Feed 21-21-21", 
+            category: "FERTILIZANTES FOLIARES", 
+            price: 33.75,
+            image: "poly-feed2121.png"
+        },
+        { 
+            id: 54, 
+            name: "Poly-Feed 12-6-40", 
+            category: "FERTILIZANTES FOLIARES", 
+            price: 33.75,
+            image: "polyfeed12.png"
         }
     ],
     nitrogenados: [
         { 
-            id: 11, 
-            name: "Urea 46%", 
+            id: 55, 
+            name: "Urea Agrícola", 
             category: "FERTILIZANTES NITROGENADOS", 
             price: 35.90,
-            image: "urea-46.jpg"
+            image: "ureaagricola.png"
         },
         { 
-            id: 12, 
+            id: 56, 
             name: "Nitrato de Amonio", 
             category: "FERTILIZANTES NITROGENADOS", 
             price: 48.60,
-            image: "nitrato-amonio.jpg"
+            image: "nitratodeamonio.png"
+        },
+        { 
+            id: 57, 
+            name: "Sulfato de Amonio", 
+            category: "FERTILIZANTES NITROGENADOS", 
+            price: 48.60,
+            image: "sulfatodeamonio.png"
+        },
+        { 
+            id: 58, 
+            name: " Molimax Nitros", 
+            category: "FERTILIZANTES NITROGENADOS", 
+            price: 48.60,
+            image: "molimaxnitros.png"
+        },
+        { 
+            id: 59, 
+            name: " Urea Azulada", 
+            category: "FERTILIZANTES NITROGENADOS", 
+            price: 48.60,
+            image: "ureaazulada.png"
         }
     ]
 };
@@ -98,6 +479,20 @@ const productsByCategory = {
 // Variables globales
 let currentCategory = 'fosfatados';
 let cart = [];
+
+// Ruta base para las imágenes (ajustada a la estructura de carpetas 'static/img')
+const IMAGE_BASE_PATH = 'static/img/';
+const PLACEHOLDER_IMAGE = 'placeholder.jpg'; // Asegúrate de tener esta imagen en static/img/
+
+// Función para obtener la ruta de la imagen, reemplazando la lógica de url_for
+function getImagePath(imageFileName) {
+    // Si la ruta del JS es diferente a la raíz, ajusta la ruta.
+    // Asumiendo que el JS está en una carpeta y 'static' está al mismo nivel.
+    // Ejemplo: /js/script.js -> ../static/img/filename
+    // Si el JS está en la raíz, es: static/img/filename
+    // Usaremos la ruta absoluta desde la raíz para evitar problemas: /static/img/filename
+    return `/${IMAGE_BASE_PATH}${imageFileName}`;
+}
 
 // ========== SISTEMA DEL CARRITO ==========
 
@@ -166,15 +561,21 @@ function removeFromCart(index) {
 // Función para actualizar cantidad
 function updateQuantity(index, change) {
     console.log('🔢 Actualizando cantidad:', { index, change });
-    cart[index].quantity += change;
-    
-    if (cart[index].quantity <= 0) {
-        cart.splice(index, 1);
+    // Asegurarse de que el índice es válido
+    if (index >= 0 && index < cart.length) {
+        cart[index].quantity += change;
+        
+        if (cart[index].quantity <= 0) {
+            // Eliminar si la cantidad llega a 0 o menos
+            cart.splice(index, 1);
+        }
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartModal();
+        updateCartCount();
+    } else {
+        console.error('❌ Índice de carrito inválido:', index);
     }
-    
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartModal();
-    updateCartCount();
 }
 
 // Actualizar contador del carrito
@@ -185,6 +586,7 @@ function updateCartCount() {
         cartCount.textContent = totalItems;
         console.log('🔢 Contador actualizado:', totalItems, 'productos en el carrito');
     } else {
+        // Este error puede ser esperado si el JS se carga antes de que el HTML esté listo
         console.error('❌ Elemento .cart-count no encontrado');
     }
 }
@@ -197,13 +599,9 @@ function updateCartModal() {
     
     console.log('🔄 Actualizando modal del carrito, productos:', cart);
     
-    if (!cartItems) {
-        console.error('❌ Elemento cart-items no encontrado');
-        return;
-    }
-    
-    if (!cartTotal) {
-        console.error('❌ Elemento cart-total no encontrado');
+    if (!cartItems || !cartTotal) {
+        // Puede que no estemos en la página que tiene el modal
+        console.warn('⚠️ Elementos del modal (cart-items o cart-total) no encontrados. Saltando actualización del modal.');
         return;
     }
     
@@ -223,16 +621,21 @@ function updateCartModal() {
             
             // Buscar la imagen del producto en la base de datos
             const product = findProductById(item.id);
-            const productImage = product ? product.image : 'placeholder.jpg';
+            const productImageName = product ? product.image : PLACEHOLDER_IMAGE;
             
             const cartItemElement = document.createElement('div');
             cartItemElement.className = 'cart-item';
+            
+            // Reemplazo de {{ url_for(...) }} por getImagePath()
+            const imagePath = getImagePath(productImageName);
+            const placeholderPath = getImagePath(PLACEHOLDER_IMAGE);
+
             cartItemElement.innerHTML = `
                 <div class="cart-item-image">
-                    <img src="{{ url_for('static', filename='img/products/${productImage}') }}" 
-                         alt="${item.name}" 
-                         class="cart-product-image"
-                         onerror="this.src='{{ url_for('static', filename='img/products/placeholder.jpg') }}'">
+                    <img src="${imagePath}" 
+                        alt="${item.name}" 
+                        class="cart-product-image"
+                        onerror="this.src='${placeholderPath}'">
                 </div>
                 <div class="cart-item-info">
                     <div class="cart-item-name">${item.name}</div>
@@ -258,8 +661,11 @@ function updateCartModal() {
 
 // Función auxiliar para encontrar producto por ID
 function findProductById(id) {
+    // Convertir el ID a número ya que los IDs en el carrito pueden ser strings
+    const productId = parseInt(id); 
     for (const category in productsByCategory) {
-        const product = productsByCategory[category].find(item => item.id == id);
+        // Usar triple igualdad (===) si se asegura que todos los IDs son números.
+        const product = productsByCategory[category].find(item => item.id === productId);
         if (product) return product;
     }
     return null;
@@ -281,13 +687,24 @@ function showNotification(message) {
         z-index: 1001;
         font-weight: bold;
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: opacity 0.5s ease-in-out;
+        opacity: 0; /* Empieza oculto para la animación */
     `;
     notification.textContent = message;
     
     document.body.appendChild(notification);
     
+    // Iniciar animación de entrada
     setTimeout(() => {
-        notification.remove();
+        notification.style.opacity = 1;
+    }, 10); // Pequeño retraso para que el navegador aplique 'opacity: 0'
+
+    // Retardo para la eliminación
+    setTimeout(() => {
+        notification.style.opacity = 0; // Iniciar animación de salida
+        setTimeout(() => {
+            notification.remove();
+        }, 500); // Esperar que termine la transición de salida
     }, 3000);
 }
 
@@ -304,16 +721,13 @@ function initializeCart() {
     const overlay = document.getElementById('overlay');
     const checkoutBtn = document.getElementById('checkout-btn');
 
-    // Verificar que todos los elementos existan
-    if (!cartIcon) console.error('❌ header-cart-icon no encontrado');
-    if (!cartSystem) console.error('❌ cart-system no encontrado');
-    if (!closeCart) console.error('❌ close-cart no encontrado');
-    if (!overlay) console.error('❌ overlay no encontrado');
-    if (!checkoutBtn) console.error('❌ checkout-btn no encontrado');
+    // Manejo de errores para elementos que pueden no estar en todas las páginas
+    const cartElementsExist = cartIcon && cartSystem && closeCart && overlay;
 
-    if (!cartIcon || !cartSystem || !closeCart || !overlay) {
-        console.error('❌ Elementos del carrito no encontrados en el DOM');
-        return;
+    if (!cartElementsExist) {
+        console.warn('⚠️ No se encontraron todos los elementos del carrito (Icono, Modal, Cierre, Overlay). El sistema del carrito se inicializa parcialmente para el conteo y localStorage.');
+        updateCartCount(); // Asegurarse de que el contador se actualice si existe
+        return; // Salir si falta un elemento crítico para la interfaz del modal
     }
 
     // Abrir carrito
@@ -321,7 +735,7 @@ function initializeCart() {
         console.log('📂 Abriendo carrito...');
         cartSystem.classList.add('open');
         overlay.classList.add('active');
-        updateCartModal();
+        updateCartModal(); // Asegurarse de que el modal esté al día
     });
 
     // Cerrar carrito
@@ -345,20 +759,23 @@ function initializeCart() {
                 alert('Tu carrito está vacío. Añade algunos productos antes de proceder al pago.');
             } else {
                 const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                alert(`Redirigiendo al proceso de pago...\nTotal: $${total.toFixed(2)}`);
-                // window.location.href = "{{ url_for('formulario_compra') }}";
+            
+                // Redirigir al formulario de compra
+                window.location.href = "/formulario_compra";
+            
+                // Opcional: Mostrar mensaje de confirmación
+                console.log('🛒 Redirigiendo al formulario de compra con', cart.length, 'productos');
             }
         });
     }
+}
 
     // Actualizar interfaz
     updateCartCount();
     updateCartModal();
     
     console.log('✅ Sistema del carrito inicializado correctamente');
-    console.log('🔍 Estado inicial - Carrito:', cart);
-    console.log('🔍 Estado inicial - Contador:', document.querySelector('.cart-count')?.textContent);
-}
+
 
 // ========== SISTEMA DE PRODUCTOS Y BÚSQUEDA ==========
 
@@ -389,17 +806,25 @@ function displayProducts(products) {
     products.forEach(product => {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
+        
+        // Reemplazo de {{ url_for(...) }} por getImagePath()
+        const imagePath = getImagePath(product.image);
+        const placeholderPath = getImagePath(PLACEHOLDER_IMAGE);
+
+        // Escapar comillas en el nombre del producto para la función onclick
+        const escapedProductName = product.name.replace(/'/g, "\\'");
+
         productCard.innerHTML = `
             <div class="product-image-container">
-                <img src="{{ url_for('static', filename='img/products/${product.image}') }}" 
+                <img src="${imagePath}" 
                     alt="${product.name}" 
                     class="product-image"
-                    onerror="this.src='{{ url_for('static', filename='img/products/placeholder.jpg') }}'">
+                    onerror="this.src='${placeholderPath}'">
             </div>
             <div class="product-category">${product.category}</div>
             <h3 class="product-name">${product.name}</h3>
             <div class="product-price">$${product.price.toFixed(2)}</div>
-            <button class="add-to-cart-btn" onclick="addToCart(${product.id}, '${product.name.replace(/'/g, "\\'")}', ${product.price})">
+            <button class="add-to-cart-btn" onclick="addToCart(${product.id}, '${escapedProductName}', ${product.price})">
                 AÑADIR AL CARRITO
             </button>
         `;
@@ -414,7 +839,8 @@ function displayProducts(products) {
 function updateActiveCategory(activeCategory) {
     document.querySelectorAll('.categories-list a').forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('onclick').includes(activeCategory)) {
+        // Buscar el nombre de la categoría en el atributo onclick
+        if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(`showCategory('${activeCategory}')`)) {
             link.classList.add('active');
         }
     });
@@ -435,7 +861,8 @@ function initializeSearch() {
         
         if (query.length === 0) {
             suggestionsList.style.display = 'none';
-            showCategory(currentCategory);
+            // Volver a mostrar la categoría actual cuando la búsqueda se borra
+            showCategory(currentCategory); 
             return;
         }
 
@@ -456,6 +883,7 @@ function initializeSearch() {
     });
 
     document.addEventListener('click', function(e) {
+        // Cierra las sugerencias al hacer clic fuera del input y la lista
         if (!searchInput.contains(e.target) && !suggestionsList.contains(e.target)) {
             suggestionsList.style.display = 'none';
         }
@@ -465,7 +893,10 @@ function initializeSearch() {
 function getAllProducts() {
     const allProducts = [];
     for (const category in productsByCategory) {
-        allProducts.push(...productsByCategory[category]);
+        // Asegurarse de que el valor sea un array antes de hacer spread
+        if (Array.isArray(productsByCategory[category])) {
+            allProducts.push(...productsByCategory[category]);
+        }
     }
     return allProducts;
 }
@@ -500,6 +931,11 @@ function performSearch(query) {
         product.category.toLowerCase().includes(query.toLowerCase())
     );
     
+    // Al buscar, desactiva la categoría activa visualmente
+    document.querySelectorAll('.categories-list a').forEach(link => {
+        link.classList.remove('active');
+    });
+    
     displayProducts(results);
 }
 
@@ -508,18 +944,96 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🌐 Página completamente cargada');
     console.log('🔍 Verificando elementos del DOM...');
     
-    // Verificar elementos críticos
-    console.log('📍 products-grid:', document.getElementById('products-grid') ? '✅ Encontrado' : '❌ No encontrado');
-    console.log('📍 header-cart-icon:', document.getElementById('header-cart-icon') ? '✅ Encontrado' : '❌ No encontrado');
-    console.log('📍 cart-system:', document.getElementById('cart-system') ? '✅ Encontrado' : '❌ No encontrado');
-    console.log('📍 cart-items:', document.getElementById('cart-items') ? '✅ Encontrado' : '❌ No encontrado');
-    console.log('📍 cart-total:', document.getElementById('cart-total') ? '✅ Encontrado' : '❌ No encontrado');
-    
     // Inicializar sistemas
-    showCategory('fosfatados');
     initializeSearch();
     initializeCart();
+    
+    // Mostrar la categoría por defecto (fosfatados)
+    // Esto debe hacerse después de la inicialización si la función showCategory
+    // necesita que el DOM esté completamente cargado.
+    showCategory('fosfatados');
     
     console.log('🎉 Todos los sistemas inicializados');
     console.log('💡 Para probar: Haz clic en "AÑADIR AL CARRITO" y revisa la consola');
 });
+
+
+
+
+
+
+
+// Función para cargar el carrito en la tabla
+        // Función para cargar el carrito en la tabla del checkout
+        function loadCheckoutCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('checkout-cart-items');
+            const cartTotalElement = document.getElementById('checkout-cart-total');
+            let total = 0;
+
+            cartItemsContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<tr><td colspan="5" style="text-align: center; padding: 20px;">No hay productos en el carrito</td></tr>';
+            } else {
+                cart.forEach((item, index) => {
+                    const subtotal = item.price * item.quantity;
+                    total += subtotal;
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.name}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>
+                            <input type="number" min="1" value="${item.quantity}" 
+                                onchange="updateCartItemQuantity(${index}, this.value)" 
+                                style="width: 60px; padding: 5px; text-align: center;">
+                        </td>
+                        <td>$${subtotal.toFixed(2)}</td>
+                        <td>
+                            <button class="btn-remove" onclick="removeCartItem(${index})">Eliminar</button>
+                        </td>
+                    `;
+                    cartItemsContainer.appendChild(row);
+                });
+            }
+
+            cartTotalElement.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Función para actualizar la cantidad de un producto en el carrito
+        function updateCartItemQuantity(index, newQuantity) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (index >= 0 && index < cart.length) {
+                cart[index].quantity = parseInt(newQuantity);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCheckoutCart(); // Recargar la tabla
+            }
+        }
+
+        // Función para eliminar un producto del carrito
+        function removeCartItem(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (index >= 0 && index < cart.length) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                loadCheckoutCart(); // Recargar la tabla
+            }
+        }
+
+        // Función para actualizar el carrito desde la tabla
+        function updateCartFromTable() {
+            // Esta función se puede usar para forzar una actualización si fuera necesario
+            loadCheckoutCart();
+            alert('Carrito actualizado correctamente');
+        }
+
+        // Función para continuar comprando
+        function continueShopping() {
+            window.location.href = "{{ url_for('productos') }}";
+        }
+
+        // Cargar el carrito cuando la página se carga
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCheckoutCart();
+        });

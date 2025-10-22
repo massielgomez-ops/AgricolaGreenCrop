@@ -23,7 +23,7 @@ def get_db_connection():
             f'DATABASE={database};'
             f'UID={username};'
             f'PWD={password};'
-            f'Encrypt=no;'  # Para desarrollo sin SSL
+            f'Encrypt=no;'
             f'TrustServerCertificate=no;'
             f'Connection Timeout=30;'
         )
@@ -36,13 +36,12 @@ def get_db_connection():
         print(f"❌ Error de conexión a RDS: {str(e)}")
         return None
 
-# Crear tabla si no existe (SOLO CREACIÓN, SIN INSERCIÓN)
+# Crear tabla si no existe
 def create_table():
     conn = get_db_connection()
     if conn:
         try:
             cursor = conn.cursor()
-            # Solo crear la tabla si no existe
             cursor.execute('''
                 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='contactos' AND xtype='U')
                 CREATE TABLE contactos (
@@ -72,15 +71,103 @@ def index():
 def chatbot():
     return render_template("chatbot.html")
 
-# --- Lógica del chatbot ---
-def chatbot_response(user_input):
-    respuestas = {
-        "hola": "¡Hola! ¿Cómo estás?",
-        "adios": "¡Hasta luego!",
-        "productos": "Tenemos frutas, verduras y más 🥑🍎.",
-        "contacto": "Puedes escribirnos en la sección de contacto 📩."
-    }
-    return respuestas.get(user_input.lower(), "Lo siento, no entendí tu mensaje.")
+# --- NUEVA LÓGICA DEL CHATBOT ---
+@app.route("/chat", methods=['POST'])
+def chat():
+    user_message = request.json.get('message', '').lower()
+
+    # --- MENSAJE DE INICIO / MENÚ PRINCIPAL ---
+    if user_message in ["hola", "menu", "inicio", "ayuda"]:
+        return jsonify({
+            "response": "👋 ¡Hola! Soy el chatbot de <b>Agrícola Green Crop</b> 🌱<br>"
+                        "Estoy aquí para ayudarte con todo lo que necesites sobre nuestros productos y servicios.<br><br>"
+                        "Ofrecemos <b>delivery rápido</b>, <b>asesoramiento personalizado</b> y todo lo que tu cultivo necesita "
+                        "para crecer fuerte y sano. 🚜✨<br><br>💬 ¿En qué puedo ayudarte hoy?",
+            "options": ["Fertilizantes", "Qué ofrecemos", "Precios", "Asesoramiento"]
+        })
+
+    # --- FERTILIZANTES ---
+    elif "fertilizantes" in user_message:
+        return jsonify({
+            "response": "🌾 En <b>Agrícola Green Crop</b> contamos con una amplia variedad de <b>fertilizantes</b> "
+                        "para que tus cultivos crezcan sanos y fuertes.<br><br>"
+                        "Pueden ser <b>orgánicos</b> o <b>químicos</b>, según las necesidades de tu tierra. 🌱",
+            "options": ["Orgánicos", "Químicos"]
+        })
+
+    # --- FERTILIZANTES ORGÁNICOS ---
+    elif "orgánicos" in user_message:
+        return jsonify({
+            "response": "🌿 Nuestros <b>fertilizantes orgánicos</b> son 100% naturales y ayudan a mejorar la calidad del suelo.<br><br>"
+                        "Contamos con <b>compost</b>, <b>humus de lombriz</b> y <b>biofertilizantes líquidos</b> ideales para todo tipo de cultivo. ♻",
+            "options": ["Ver precios", "Qué ofrecemos", "Asesoramiento"]
+        })
+
+    # --- FERTILIZANTES QUÍMICOS ---
+    elif "químicos" in user_message:
+        return jsonify({
+            "response": "💧 Los <b>fertilizantes químicos</b> de <b>Agrícola Green Crop</b> brindan una nutrición rápida y efectiva a tus cultivos.<br><br>"
+                        "Disponemos de <b>nitrato de amonio</b>, <b>urea</b> y <b>fosfato diamónico</b>, productos de alta pureza y rendimiento. ⚗",
+            "options": ["Ver precios", "Qué ofrecemos", "Asesoramiento"]
+        })
+
+    # --- QUÉ OFRECEMOS ---
+    elif "qué ofrecemos" in user_message or "ofrecemos" in user_message:
+        return jsonify({
+            "response": "📦 En <b>Agrícola Green Crop</b> te ofrecemos soluciones completas para el campo:<br><br>"
+                        "✅ <b>Fertilizantes de alta calidad</b><br>"
+                        "✅ <b>Asesoramiento técnico personalizado</b><br>"
+                        "✅ <b>Delivery rápido</b> a todo el país<br>"
+                        "✅ <b>Promociones especiales</b> por temporada 🌾<br><br>"
+                        "Todo lo que tu cultivo necesita, en un solo lugar.",
+            "options": ["Fertilizantes", "Precios", "Asesoramiento"]
+        })
+
+    # --- PRECIOS ---
+    elif "precio" in user_message or "precios" in user_message:
+        return jsonify({
+            "response": "💲 Nuestros precios varían según el tipo de producto y la cantidad que necesites.<br><br>"
+                        "Cuéntame qué cultivo tienes y te ayudaremos a cotizar el fertilizante más adecuado. 🌽☕🥔",
+            "options": ["Papa", "Maíz", "Café"]
+        })
+
+    # --- PRECIOS POR CULTIVO ---
+    elif "papa" in user_message:
+        return jsonify({
+            "response": "🥔 Para el cultivo de <b>papa</b>, recomendamos fertilizantes ricos en nitrógeno y potasio.<br><br>"
+                        "💲 Precio aproximado: desde <b>S/ 45 por saco</b> (según tipo y presentación).",
+            "options": ["Fertilizantes", "Asesoramiento"]
+        })
+
+    elif "maíz" in user_message:
+        return jsonify({
+            "response": "🌽 Para el <b>maíz</b>, sugerimos fertilizantes con fósforo y zinc para un mejor crecimiento y producción.<br><br>"
+                        "💲 Precio aproximado: desde <b>S/ 50 por saco</b>.",
+            "options": ["Fertilizantes", "Asesoramiento"]
+        })
+
+    elif "café" in user_message:
+        return jsonify({
+            "response": "☕ En el caso del <b>café</b>, usamos fertilizantes equilibrados que mejoran la floración y el grano.<br><br>"
+                        "💲 Precio aproximado: desde <b>S/ 55 por saco</b>.",
+            "options": ["Fertilizantes", "Asesoramiento"]
+        })
+
+    # --- ASESORAMIENTO ---
+    elif "asesoramiento" in user_message or "asesor" in user_message:
+        return jsonify({
+            "response": "📞 En <b>Agrícola Green Crop</b> contamos con expertos listos para asesorarte.<br><br>"
+                        "Recibirás <b>recomendaciones personalizadas</b> según tu tipo de cultivo y el estado del suelo. 🌱<br><br>"
+                        "Puedes contactarnos por:<br>📧 <b>info@agricolagreencrop.com</b><br>📱 <b>WhatsApp: +51 999 888 777</b>",
+            "options": ["Fertilizantes", "Qué ofrecemos", "Precios"]
+        })
+
+    # --- SI NO ENTIENDE ---
+    else:
+        return jsonify({
+            "response": "🤔 No entendí tu mensaje. Por favor elige una de estas opciones 👇",
+            "options": ["Fertilizantes", "Qué ofrecemos", "Precios", "Asesoramiento"]
+        })
 
 @app.route("/productos")
 def productos():
@@ -94,20 +181,17 @@ def servicio():
 def contact():
     if request.method == 'POST':
         try:
-            # Obtener datos del formulario
             nombre = request.form.get('name', '').strip()
             email = request.form.get('email', '').strip()
             mensaje = request.form.get('message', '').strip()
-            ip_cliente = request.remote_addr  # Obtener IP del cliente
+            ip_cliente = request.remote_addr  
             
-            print(f"📨 Datos recibidos: {nombre}, {email}, {mensaje}")  # Debug
+            print(f"📨 Datos recibidos: {nombre}, {email}, {mensaje}")
             
-            # Validar que los campos no estén vacíos
             if not nombre or not email or not mensaje:
                 flash('Por favor, completa todos los campos.', 'error')
                 return render_template('contact.html')
             
-            # Validaciones adicionales
             if len(nombre) < 2:
                 flash('El nombre debe tener al menos 2 caracteres.', 'error')
                 return render_template('contact.html')
@@ -116,12 +200,10 @@ def contact():
                 flash('El mensaje debe tener al menos 10 caracteres.', 'error')
                 return render_template('contact.html')
             
-            # Guardar en la base de datos
             conn = get_db_connection()
             if conn:
                 try:
                     cursor = conn.cursor()
-                    # Usar la tabla 'contactos' que ya existe
                     cursor.execute(
                         'INSERT INTO contactos (nombre, email, mensaje, ip_cliente) VALUES (?, ?, ?, ?)',
                         (nombre, email, mensaje, ip_cliente)
@@ -164,7 +246,6 @@ def compra_productos():
     categoria = request.args.get('categoria', 'magnesicos')
     return render_template("compra_productos.html", categoria=categoria)
 
-# Ruta para probar la conexión a la base de datos
 @app.route("/test-db")
 def test_db():
     conn = get_db_connection()
